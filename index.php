@@ -11,8 +11,16 @@ $cinemaMultiSala = [
     new Sala("sala2",120),
     new Sala("sala3",90),
     new Sala("sala4",60),
-    new Sala_immersiva("sala5",80)
+    new Sala_immersiva("sala5",80,["fumo","vibrazione"])
 ];
+
+$film1 = new Film("la banda dei babbi natale");
+
+$film1->setAttore("Aldo","Baglio");
+$film1->setAttore("Giovanni","Poretti");
+$film1->setAttore("Giacomo","Storti");
+
+$spettacolo1 = new Spettacolo($film1->getNome(),135,20.35);
 
 
 

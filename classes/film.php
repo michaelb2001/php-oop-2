@@ -1,11 +1,14 @@
 <?php
 
+include_once __DIR__.'/classes/attore.php';
+
 class Film{
 
     private $nome;
     private $lingua;
     private $autore;
-    private $durata;
+
+    private $attori = [];
 
     public function __construct($_nome){
         $this->nome = $_nome;
@@ -23,8 +26,8 @@ class Film{
         return $this->autore;
     }
 
-    public function getDurata(){
-        return $this->durata;
+    public function getAttori(){
+        return $this->attori;
     }
 
     public function setNome($_nome){
@@ -39,9 +42,10 @@ class Film{
         $this->nome = $_autore;
     }
 
-    public function setDurata($_durata){
-        $this->nome = $_durata;
+    public function setAttore($_nome,$_cognome){
+        array_push($this->attori,new Attore($_nome,$_cognome));
     }
+
 }
 
 ?>

@@ -4,17 +4,12 @@ include_once __DIR__.'/classes/sala.php';
 
 class Sala_immersiva extends Sala{
 
-    private $effetti;
+    private $effetti = [];
 
-    public function __construct($_nome,$_n_posti){
+    public function __construct($_nome,$_n_posti,$_effetti){
         $this->nome = $_nome;
         $this->n_posti = $_n_posti;
-        $this->effetti = [
-            "acqua",
-            "temperatura",
-            "fumo",
-            "scossa"
-        ];
+        $this->effetti = $_effetti;
     }
 }
 
