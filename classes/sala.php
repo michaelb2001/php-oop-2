@@ -3,8 +3,8 @@
 
 class Sala{
 
-    private $nome;
-    private $n_posti;
+    protected $nome;
+    protected $n_posti;
 
     public function __construct($_nome,$_n_posti){
         $this->nome = $_nome;
