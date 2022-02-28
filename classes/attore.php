@@ -30,11 +30,11 @@ class Attore{
     }
 
     public function setCognome($_cognome){
-        $this->nome = $_cognome;
+        $this->cognome = $_cognome;
     }
 
     public function setNazionalita($_nazionalita){
-        $this->nome = $_nazionalita;
+        $this->nazionalita = $_nazionalita;
     }
 
 }
