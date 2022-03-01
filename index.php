@@ -2,7 +2,6 @@
 
 
 /*
-2) Recuperare la capienza totale del cinema considerando tutte le sale a disposizione.
 3) Stabilito un giorno e un film, recuperare quante proiezioni totali di quel film ci saranno.
 4) Stabilito un giorno, recupera l’orario di fine dell’ultimo spettacolo.
 */
@@ -27,9 +26,12 @@ $film1->setAttore("Aldo","Baglio");
 $film1->setAttore("Giovanni","Poretti");
 $film1->setAttore("Giacomo","Storti");
 
-$spettacolo1 = new Spettacolo($film1->getNome(),1.30,20.35,$cinemaMultiSala[0]->getNome());
-$spettacolo2 = new Spettacolo($film1->getNome(),1.30,20.35,$cinemaMultiSala[3]->getNome());
+$spettacolo1 = new Spettacolo($film1->getNome(),"sabato",1.30,20.35,$cinemaMultiSala[0]->getNome());
+$spettacolo2 = new Spettacolo($film1->getNome(),"sabato",1.30,20.35,$cinemaMultiSala[3]->getNome());
 
+$arraySpettacoli = [];
+
+array_push($arraySpettacoli,$spettacolo1,$spettacolo2);
 
 $capienzaCinama; 
 
@@ -50,6 +52,7 @@ $capienzaCinama;
     <h1>INFORMAZIONI CINEMA</h1>
     
     <h2>INFORMAZIONI SALE</h2>
+
     <p><?php 
         foreach($cinemaMultiSala as $sala){
         if(method_exists($sala,'getEffetti')){
@@ -67,10 +70,24 @@ $capienzaCinama;
     <h2>CAPIENZA CINEMA</h2>
 
     <p><?php 
+        $capienzaCinama = 0;
         foreach($cinemaMultiSala as $sala){
         $capienzaCinama = $capienzaCinama + $sala->getNposti();
         }; 
         echo "<div class='capienza'>{$capienzaCinama} posti </div>";
+    ?></p>
+
+
+    <h2>numero spettacoli del sabato per il film "la banda dei babbi natale"</h2>
+
+    <p><?php
+        $numero_spettacoli = 0;
+        foreach($arraySpettacoli as $spettacolo){
+            if($spettacolo->getGiorno()=="sabato" && $spettacolo->film = "la banda dei babbi natale"){
+                $numero_spettacoli = $numero_spettacoli+1;
+            }
+            }; 
+            echo "<div class='spettacoli'>{$numero_spettacoli} spettacoli </div>";
     ?></p>
 
 </body>

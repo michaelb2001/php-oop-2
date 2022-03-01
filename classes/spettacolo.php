@@ -8,9 +8,11 @@ class Spettacolo {
     private $durata;
     private $ora_di_inizio;
     private $sala;
+    private $giorno;
 
-    public function __construct($_nome_film,$_durata,$_ora_di_inizio,$_sala){
+    public function __construct($_nome_film,$_giorno,$_durata,$_ora_di_inizio,$_sala){
         $this->nome_film = $_nome_film;
+        $this->giorno = $_giorno;
         $this->durata = $_durata;
         $this->ora_di_inizio = $_ora_di_inizio;
         $this->sala = $_sala;
@@ -20,6 +22,10 @@ class Spettacolo {
         return $this->nome_film ;
     }
 
+    public function getGiorno(){
+        return $this->giorno;
+    }
+    
     public function getDurata(){
         return $this->durata;
     }

@@ -1,4 +1,6 @@
-.info_sala,.capienza{
+.info_sala,
+.capienza,
+.spettacoli{
     border: 2px solid black;
     border-radius: 15px;
     padding: 30px;
