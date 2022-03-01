@@ -70,7 +70,7 @@ $capienzaCinama;
         foreach($cinemaMultiSala as $sala){
         $capienzaCinama = $capienzaCinama + $sala->getNposti();
         }; 
-        echo " {$capienzaCinama} posti";
+        echo "<div class='capienza'>{$capienzaCinama} posti </div>";
     ?></p>
 
 </body>
