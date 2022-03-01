@@ -1,5 +1,12 @@
 <?php
 
+
+/*
+2) Recuperare la capienza totale del cinema considerando tutte le sale a disposizione.
+3) Stabilito un giorno e un film, recuperare quante proiezioni totali di quel film ci saranno.
+4) Stabilito un giorno, recupera l’orario di fine dell’ultimo spettacolo.
+*/
+
 include_once __DIR__.'/classes/sala.php';
 include_once __DIR__.'/classes/sala_immersiva.php';
 include_once __DIR__.'/classes/film.php';
@@ -20,9 +27,11 @@ $film1->setAttore("Aldo","Baglio");
 $film1->setAttore("Giovanni","Poretti");
 $film1->setAttore("Giacomo","Storti");
 
-$spettacolo1 = new Spettacolo($film1->getNome(),135,20.35);
+$spettacolo1 = new Spettacolo($film1->getNome(),1.30,20.35,$cinemaMultiSala[0]->getNome());
+$spettacolo2 = new Spettacolo($film1->getNome(),1.30,20.35,$cinemaMultiSala[3]->getNome());
 
 
+$capienzaCinama; 
 
 ?>
 
@@ -33,8 +42,38 @@ $spettacolo1 = new Spettacolo($film1->getNome(),135,20.35);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php-oop-2</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <h1>INFORMAZIONI CINEMA</h1>
     
+    <h2>INFORMAZIONI SALE</h2>
+    <p><?php 
+        foreach($cinemaMultiSala as $sala){
+        if(method_exists($sala,'getEffetti')){
+            echo "<div class='info_sala'>{$sala->getNome()} {$sala->getNposti()} ";
+            foreach($sala->getEffetti() as $effetto){
+                echo" {$effetto} ";
+            };
+            echo "</div>";
+        }else{
+            echo "<div class='info_sala'>{$sala->getNome()} {$sala->getNposti()}</div>";
+        }
+    } ?></p>
+
+
+    <h2>CAPIENZA CINEMA</h2>
+
+    <p><?php 
+        foreach($cinemaMultiSala as $sala){
+        $capienzaCinama = $capienzaCinama + $sala->getNposti();
+        }; 
+        echo " {$capienzaCinama} posti";
+    ?></p>
+
 </body>
+
+
 </html>

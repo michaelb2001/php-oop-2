@@ -31,7 +31,11 @@ class Film{
     }
 
     public function setNome($_nome){
-        $this->nome = $_nome;
+        if(is_int($_nome)){
+            throw new Exception("inserisci un testo");
+        } else{
+            $this->nome = $_nome;
+        }
     }
 
     public function setLingua($_lingua){

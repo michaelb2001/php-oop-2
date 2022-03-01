@@ -10,6 +10,10 @@ class Sala_immersiva extends Sala{
         parent::__construct($_nome,$_n_posti);
         $this->effetti = $_effetti;
     }
+
+    public function getEffetti(){
+        return $this->effetti;
+    }
 }
 
 ?>
