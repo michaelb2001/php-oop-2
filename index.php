@@ -2,7 +2,6 @@
 
 
 /*
-3) Stabilito un giorno e un film, recuperare quante proiezioni totali di quel film ci saranno.
 4) Stabilito un giorno, recupera l’orario di fine dell’ultimo spettacolo.
 */
 
@@ -27,13 +26,18 @@ $film1->setAttore("Giovanni","Poretti");
 $film1->setAttore("Giacomo","Storti");
 
 $spettacolo1 = new Spettacolo($film1->getNome(),"sabato",1.30,20.35,$cinemaMultiSala[0]->getNome());
-$spettacolo2 = new Spettacolo($film1->getNome(),"sabato",1.30,20.35,$cinemaMultiSala[3]->getNome());
+$spettacolo2 = new Spettacolo($film1->getNome(),"sabato",1.30,17.35,$cinemaMultiSala[3]->getNome());
 
 $arraySpettacoli = [];
 
 array_push($arraySpettacoli,$spettacolo1,$spettacolo2);
 
 $capienzaCinama; 
+
+$array_orari=[];
+
+array_push($array_orari,$spettacolo1->getOraDiInizio(),$spettacolo2->getOraDiInizio());
+
 
 ?>
 
@@ -86,10 +90,20 @@ $capienzaCinama;
             if($spettacolo->getGiorno()=="sabato" && $spettacolo->film = "la banda dei babbi natale"){
                 $numero_spettacoli = $numero_spettacoli+1;
             }
-            }; 
-            echo "<div class='spettacoli'>{$numero_spettacoli} spettacoli </div>";
+        }; 
+        echo "<div class='spettacoli'>{$numero_spettacoli} spettacoli </div>";
     ?></p>
 
+    <h2>ultimo spettacolo di sabto del film "la banda dei babbi natale"</h2>
+
+    <p><?php
+        foreach($arraySpettacoli as $spettacolo){
+            if($spettacolo->getGiorno()=="sabato" && 
+               $spettacolo->getOraDiInizio() ==  max($array_orari) ){
+                echo "<div class='ultimo_spettacolo'>{$spettacolo->getOraDiInizio()}</div>";
+            }
+        }
+?></p>
 </body>
 
 
